@@ -1,0 +1,26 @@
+- name: Import JAVA
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: java
+
+- name: Installing MySQL
+  ansible.builtin.dnf:
+    name:
+      - mysql
+      - python3-mysqlclient
+    state: installed
+
+- name: Loading {{ item }}
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    target: /app/db/{{ item }}.sql
+    login_host: mysql-dev.pdevops.online
+    login_user: uroot
+    login_password: pRoboShop@1
+  loop:
+    - schema
+    - app-user
+    - master-data
+
+
