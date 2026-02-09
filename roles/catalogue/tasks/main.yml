@@ -15,7 +15,7 @@
 
 - name: Loading Master data
   community.mongodb.mongodb_shell:
-    login_host: "mongodb-{{ ENV }}.pdevops.online"
+    login_host: mongodb-dev.pdevops.online
     file: "/app/db/master-data.js"
     idempotent: yes
 
