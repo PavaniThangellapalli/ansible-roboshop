@@ -10,7 +10,7 @@
 
 - name: Installing MongoDB
   ansible.builtin.dnf:
-    name: mongodb-mongosh
+    name: mongodb-org
     state: installed
 
 - name: Loading Master data
