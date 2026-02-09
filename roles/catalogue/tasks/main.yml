@@ -14,9 +14,7 @@
     state: installed
 
 - name: Loading Master data
-  community.mongodb.mongodb_shell:
-    login_host: mongodb-dev.pdevops.online
-    file: "/app/db/master-data.js"
-    idempotent: yes
+  ansible.builtin.shell: mongosh --host mongodb-dev.pdevops.online </app/db/master-data.js
+
 
 
