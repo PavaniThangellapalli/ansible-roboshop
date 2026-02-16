@@ -1,3 +1,8 @@
+- name: Import Firewall role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: firewall
+
 - name: Import JAVA
   ansible.builtin.include_role:
     name: common

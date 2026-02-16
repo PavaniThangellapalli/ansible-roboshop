@@ -1,3 +1,8 @@
+- name: Import Firewall role
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: firewall
+
 - name: Disabling default Redis Version
   ansible.builtin.shell: dnf module disable redis -y
 
