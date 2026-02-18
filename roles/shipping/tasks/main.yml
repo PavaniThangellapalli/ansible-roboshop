@@ -10,9 +10,7 @@
 
 - name: Installing MySQL
   ansible.builtin.dnf:
-    name:
-      - mysql
-      - python3-mysqlclient
+    name: mysql
     state: installed
 
 - name: Loading {{ item }}
