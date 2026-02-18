@@ -35,6 +35,17 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
+- name: Allow NGINX to connect to backend ports
+  ansible.posix.seboolean:
+    name: httpd_can_network_connect
+    state: true
+    persistent: true
+
+- name: Reload Nginx service
+  ansible.builtin.systemd_service:
+    name: nginx
+    state: reloaded
+
 - name: Starting Nginx service
   ansible.builtin.systemd_service:
     name: nginx
