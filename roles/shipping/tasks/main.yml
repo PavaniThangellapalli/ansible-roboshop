@@ -10,8 +10,14 @@
 
 - name: Installing MySQL
   ansible.builtin.dnf:
-    name: mysql
+    name:
+      - mysql
+      - python3-pip
     state: installed
+
+- name: Install PyMySQL via pip
+  ansible.builtin.pip:
+    name: PyMySQL
 
 - name: Loading {{ item }}
   community.mysql.mysql_db:

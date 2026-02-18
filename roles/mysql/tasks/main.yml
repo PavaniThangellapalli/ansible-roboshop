@@ -5,23 +5,20 @@
 
 - name: Installing MySQL
   ansible.builtin.dnf:
-    name: mysql-server
+    name:
+      - mysql-server
+      - python3-pip
     state: installed
+
+- name: Install PyMySQL via pip
+  ansible.builtin.pip:
+    name: PyMySQL
 
 - name: Starting MySQL service
   ansible.builtin.systemd_service:
     name: mysqld
     state: restarted
     enabled: true
-
-- name: Install pip
-  ansible.builtin.dnf:
-    name: python3-pip
-    state: installed
-
-- name: Install PyMySQL via pip
-  ansible.builtin.pip:
-    name: PyMySQL
 
 - name: Changing the default root password
   community.mysql.mysql_user:
