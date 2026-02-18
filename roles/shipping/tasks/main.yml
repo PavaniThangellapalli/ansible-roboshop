@@ -25,8 +25,8 @@
     name: all
     target: /app/db/{{ item }}.sql
     login_host: mysql-dev.pdevops.online
-    login_user: root
-    login_password: RoboShop@1
+    login_user: uroot
+    login_password: pRoboShop@1
   loop:
     - schema
     - app-user
